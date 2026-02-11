@@ -112,8 +112,9 @@ app.http("contact", {
                   <tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Nombre</td><td style="padding:8px;border-bottom:1px solid #eee;">${body.nombre}</td></tr>
                   <tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Email</td><td style="padding:8px;border-bottom:1px solid #eee;"><a href="mailto:${body.email}">${body.email}</a></td></tr>
                   <tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Tipo de Evento</td><td style="padding:8px;border-bottom:1px solid #eee;">${tipoLabel}</td></tr>
-                  <tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Fecha</td><td style="padding:8px;border-bottom:1px solid #eee;">${fechaFormateada}</td></tr>
+                  <tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Fecha del Evento</td><td style="padding:8px;border-bottom:1px solid #eee;">${fechaFormateada}</td></tr>
                   <tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Mensaje</td><td style="padding:8px;border-bottom:1px solid #eee;">${body.mensaje}</td></tr>
+                  <tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Fecha de Solicitud</td><td style="padding:8px;border-bottom:1px solid #eee;">${new Date().toLocaleDateString('es-CL')}</td></tr>
                 </table>
                 <p style="margin-top:16px;color:#888;font-size:12px;">Enviado desde el formulario de contacto de subsonicproducciones.cl</p>
               </div>
