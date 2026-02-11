@@ -933,6 +933,36 @@
   min-height: 100px;
 }
 
+/* ── Validation ── */
+.field-error {
+  display: block;
+  font-size: 0.75rem;
+  color: #ef4444;
+  margin-top: 0.35rem;
+  padding-left: 0.25rem;
+}
+
+.submitted .ng-invalid.ng-dirty,
+.submitted .ng-invalid.ng-pristine {
+  border-color: rgba(239, 68, 68, 0.5) !important;
+  background-color: rgba(239, 68, 68, 0.04) !important;
+}
+
+/* ── Spinner ── */
+.spinner {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
 /* ======================================
    FOOTER
    ====================================== */

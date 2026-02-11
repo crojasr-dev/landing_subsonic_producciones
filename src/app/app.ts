@@ -15,8 +15,10 @@ export class App implements OnInit {
   isScrolled = signal(false);
   menuOpen = signal(false);
   formStatus = signal<'idle' | 'sending' | 'success' | 'error'>('idle');
+  formSubmitted = signal(false);
 
   currentYear = new Date().getFullYear();
+  minDate = this.getTodayString();
 
   contactForm = {
     nombre: '',
@@ -72,11 +74,19 @@ export class App implements OnInit {
 
   onSubmit(event: Event): void {
     event.preventDefault();
+    this.formSubmitted.set(true);
+
+    const form = event.target as HTMLFormElement;
+    if (!form.checkValidity()) {
+      return;
+    }
+
     this.formStatus.set('sending');
 
     this.http.post('/api/contact', this.contactForm).subscribe({
       next: () => {
         this.formStatus.set('success');
+        this.formSubmitted.set(false);
         this.contactForm = { nombre: '', email: '', tipoEvento: '', fecha: '', mensaje: '' };
         setTimeout(() => this.formStatus.set('idle'), 5000);
       },
@@ -85,5 +95,13 @@ export class App implements OnInit {
         setTimeout(() => this.formStatus.set('idle'), 5000);
       }
     });
+  }
+
+  private getTodayString(): string {
+    const d = new Date();
+    const year = d.getFullYear();
+    const month = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
   }
 }

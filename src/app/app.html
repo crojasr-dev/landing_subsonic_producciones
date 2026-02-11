@@ -292,21 +292,27 @@
         </div>
       </div>
 
-      <form class="contact-form" (submit)="onSubmit($event)">
+      <form class="contact-form" (submit)="onSubmit($event)" #cForm="ngForm" [class.submitted]="formSubmitted()">
         <div class="form-row">
           <div class="form-group">
             <label>Nombre</label>
-            <input type="text" placeholder="Tu nombre" required [(ngModel)]="contactForm.nombre" name="nombre">
+            <input type="text" placeholder="Tu nombre" required [(ngModel)]="contactForm.nombre" name="nombre" #nombre="ngModel" minlength="2">
+            @if (formSubmitted() && nombre.invalid) {
+            <span class="field-error">Ingresa tu nombre</span>
+            }
           </div>
           <div class="form-group">
             <label>Email</label>
-            <input type="email" placeholder="tu&#64;email.com" required [(ngModel)]="contactForm.email" name="email">
+            <input type="email" placeholder="tu&#64;email.com" required [(ngModel)]="contactForm.email" name="email" #email="ngModel">
+            @if (formSubmitted() && email.invalid) {
+            <span class="field-error">Ingresa un email válido</span>
+            }
           </div>
         </div>
         <div class="form-row">
           <div class="form-group">
             <label>Tipo de evento</label>
-            <select required [(ngModel)]="contactForm.tipoEvento" name="tipoEvento">
+            <select required [(ngModel)]="contactForm.tipoEvento" name="tipoEvento" #tipoEvento="ngModel">
               <option value="" disabled>Selecciona un tipo</option>
               <option value="cumpleanos">Fiesta de cumpleaños</option>
               <option value="corporativo">Evento corporativo</option>
@@ -316,19 +322,29 @@
               <option value="privado">Evento privado</option>
               <option value="otro">Otro</option>
             </select>
+            @if (formSubmitted() && tipoEvento.invalid) {
+            <span class="field-error">Selecciona un tipo de evento</span>
+            }
           </div>
           <div class="form-group">
             <label>Fecha del evento</label>
-            <input type="date" required [(ngModel)]="contactForm.fecha" name="fecha">
+            <input type="date" required [(ngModel)]="contactForm.fecha" name="fecha" #fecha="ngModel" [min]="minDate">
+            @if (formSubmitted() && fecha.invalid) {
+            <span class="field-error">Selecciona una fecha válida</span>
+            }
           </div>
         </div>
         <div class="form-group">
           <label>Mensaje</label>
           <textarea rows="4" placeholder="Cuéntanos los detalles de tu evento..." required
-            [(ngModel)]="contactForm.mensaje" name="mensaje"></textarea>
+            [(ngModel)]="contactForm.mensaje" name="mensaje" #mensaje="ngModel" minlength="10"></textarea>
+          @if (formSubmitted() && mensaje.invalid) {
+          <span class="field-error">Escribe un mensaje (mínimo 10 caracteres)</span>
+          }
         </div>
         <button type="submit" class="btn btn-glow btn-full" [disabled]="formStatus() === 'sending'">
           @if (formStatus() === 'sending') {
+          <span class="spinner"></span>
           <span>Enviando...</span>
           } @else {
           <span>Enviar Mensaje</span>
@@ -346,7 +362,7 @@
         @if (formStatus() === 'error') {
         <div
           style="margin-top:1rem;padding:1rem;border-radius:0.5rem;background:rgba(239,68,68,0.15);color:#ef4444;text-align:center;font-weight:500;">
-          Hubo un error. Intenta de nuevo o escríbenos directamente.
+          Hubo un error. Escríbenos directamente por <a href="https://www.instagram.com/subsonicproducciones/" target="_blank" rel="noopener noreferrer" style="color:#ef4444;text-decoration:underline;font-weight:700;">Instagram</a>.
         </div>
         }
       </form>
