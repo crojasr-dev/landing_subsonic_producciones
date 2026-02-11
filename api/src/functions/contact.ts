@@ -4,7 +4,7 @@ import {
   HttpResponseInit,
   InvocationContext,
 } from "@azure/functions";
-import { TableClient, AzureNamedKeyCredential } from "@azure/data-tables";
+import { TableClient } from "@azure/data-tables";
 import { EmailClient } from "@azure/communication-email";
 
 interface ContactForm {
