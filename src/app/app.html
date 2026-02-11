@@ -277,18 +277,18 @@
         <div class="form-row">
           <div class="form-group">
             <label>Nombre</label>
-            <input type="text" placeholder="Tu nombre" required>
+            <input type="text" placeholder="Tu nombre" required [(ngModel)]="contactForm.nombre" name="nombre">
           </div>
           <div class="form-group">
             <label>Email</label>
-            <input type="email" placeholder="tu&#64;email.com" required>
+            <input type="email" placeholder="tu&#64;email.com" required [(ngModel)]="contactForm.email" name="email">
           </div>
         </div>
         <div class="form-row">
           <div class="form-group">
             <label>Tipo de evento</label>
-            <select required>
-              <option value="" disabled selected>Selecciona un tipo</option>
+            <select required [(ngModel)]="contactForm.tipoEvento" name="tipoEvento">
+              <option value="" disabled>Selecciona un tipo</option>
               <option value="cumpleanos">Fiesta de cumpleaños</option>
               <option value="corporativo">Evento corporativo</option>
               <option value="matrimonio">Matrimonio</option>
@@ -300,17 +300,31 @@
           </div>
           <div class="form-group">
             <label>Fecha del evento</label>
-            <input type="date" required>
+            <input type="date" required [(ngModel)]="contactForm.fecha" name="fecha">
           </div>
         </div>
         <div class="form-group">
           <label>Mensaje</label>
-          <textarea rows="4" placeholder="Cuéntanos los detalles de tu evento..." required></textarea>
+          <textarea rows="4" placeholder="Cuéntanos los detalles de tu evento..." required [(ngModel)]="contactForm.mensaje" name="mensaje"></textarea>
         </div>
-        <button type="submit" class="btn btn-glow btn-full">
-          <span>Enviar Mensaje</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+        <button type="submit" class="btn btn-glow btn-full" [disabled]="formStatus() === 'sending'">
+          @if (formStatus() === 'sending') {
+            <span>Enviando...</span>
+          } @else {
+            <span>Enviar Mensaje</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+          }
         </button>
+        @if (formStatus() === 'success') {
+          <div style="margin-top:1rem;padding:1rem;border-radius:0.5rem;background:rgba(34,197,94,0.15);color:#22c55e;text-align:center;font-weight:500;">
+            ¡Gracias! Te contactaremos pronto. 🎉
+          </div>
+        }
+        @if (formStatus() === 'error') {
+          <div style="margin-top:1rem;padding:1rem;border-radius:0.5rem;background:rgba(239,68,68,0.15);color:#ef4444;text-align:center;font-weight:500;">
+            Hubo un error. Intenta de nuevo o escríbenos directamente.
+          </div>
+        }
       </form>
     </div>
   </div>
@@ -322,7 +336,7 @@
     <div class="footer-content">
       <div class="footer-brand">
         <span class="logo-icon">⚡</span>
-        <span class="logo-text">SUBSONIC</span>
+        <span class="logo-text">SUBSONIC PRODUCCIONES</span>
       </div>
       <p class="footer-copy">&copy; {{ currentYear }} Subsonic Producciones · Chile</p>
       <div class="footer-links">

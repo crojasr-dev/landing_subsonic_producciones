@@ -1,0 +1,17 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "func start"
+  },
+  "dependencies": {
+    "@azure/functions": "^4.0.0",
+    "@azure/data-tables": "^13.2.2",
+    "@azure/communication-email": "^1.0.0"
+  },
+  "devDependencies": {
+    "typescript": "~5.6.0"
+  }
+}

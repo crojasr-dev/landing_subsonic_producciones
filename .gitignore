@@ -38,6 +38,11 @@ testem.log
 /typings
 __screenshots__/
 
+# Azure Functions
+api/local.settings.json
+api/node_modules
+api/dist
+
 # System files
 .DS_Store
 Thumbs.db

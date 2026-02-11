@@ -1,9 +1,11 @@
 import { Component, signal, HostListener, OnInit } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -12,8 +14,17 @@ export class App implements OnInit {
 
   isScrolled = signal(false);
   menuOpen = signal(false);
+  formStatus = signal<'idle' | 'sending' | 'success' | 'error'>('idle');
 
   currentYear = new Date().getFullYear();
+
+  contactForm = {
+    nombre: '',
+    email: '',
+    tipoEvento: '',
+    fecha: '',
+    mensaje: ''
+  };
 
   mixcloudUrls: SafeResourceUrl[] = [];
 
@@ -36,7 +47,7 @@ export class App implements OnInit {
     '/Beatvicious/random_mix_vol1-beatvicious/'
   ];
 
-  constructor(private sanitizer: DomSanitizer) {}
+  constructor(private sanitizer: DomSanitizer, private http: HttpClient) {}
 
   ngOnInit(): void {
     this.mixcloudUrls = this.mixPaths.map(path =>
@@ -61,6 +72,18 @@ export class App implements OnInit {
 
   onSubmit(event: Event): void {
     event.preventDefault();
-    alert('¡Gracias por tu mensaje! Te contactaremos pronto.');
+    this.formStatus.set('sending');
+
+    this.http.post('/api/contact', this.contactForm).subscribe({
+      next: () => {
+        this.formStatus.set('success');
+        this.contactForm = { nombre: '', email: '', tipoEvento: '', fecha: '', mensaje: '' };
+        setTimeout(() => this.formStatus.set('idle'), 5000);
+      },
+      error: () => {
+        this.formStatus.set('error');
+        setTimeout(() => this.formStatus.set('idle'), 5000);
+      }
+    });
   }
 }
