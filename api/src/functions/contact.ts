@@ -104,19 +104,47 @@ app.http("contact", {
         const message = {
           senderAddress,
           content: {
-            subject: `📩 Nueva Cotización — ${tipoLabel}`,
+            subject: `⚡ Nueva Cotización — ${tipoLabel}`,
             html: `
-              <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;">
-                <h2 style="color:#4a7aff;">Nueva Cotización — Subsonic Producciones</h2>
-                <table style="width:100%;border-collapse:collapse;">
-                  <tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Nombre</td><td style="padding:8px;border-bottom:1px solid #eee;">${body.nombre}</td></tr>
-                  <tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Email</td><td style="padding:8px;border-bottom:1px solid #eee;"><a href="mailto:${body.email}">${body.email}</a></td></tr>
-                  <tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Tipo de Evento</td><td style="padding:8px;border-bottom:1px solid #eee;">${tipoLabel}</td></tr>
-                  <tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Fecha del Evento</td><td style="padding:8px;border-bottom:1px solid #eee;">${fechaFormateada}</td></tr>
-                  <tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Mensaje</td><td style="padding:8px;border-bottom:1px solid #eee;">${body.mensaje}</td></tr>
-                  <tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Fecha de Solicitud</td><td style="padding:8px;border-bottom:1px solid #eee;">${new Date().toLocaleDateString('es-CL')}</td></tr>
-                </table>
-                <p style="margin-top:16px;color:#888;font-size:12px;">Enviado desde el formulario de contacto de subsonicproducciones.cl</p>
+              <div style="font-family:'Segoe UI',Arial,sans-serif;max-width:600px;margin:0 auto;background:#050a15;border-radius:16px;overflow:hidden;border:1px solid rgba(74,122,255,0.15);">
+                <!-- Header -->
+                <div style="background:linear-gradient(135deg,rgba(74,122,255,0.15),rgba(168,85,247,0.1));padding:32px 32px 24px;text-align:center;border-bottom:1px solid rgba(255,255,255,0.06);">
+                  <div style="font-size:28px;margin-bottom:8px;">⚡</div>
+                  <h1 style="margin:0;font-size:22px;font-weight:800;color:#fff;letter-spacing:-0.02em;">SUBSONIC PRODUCCIONES</h1>
+                  <p style="margin:8px 0 0;font-size:13px;color:rgba(255,255,255,0.4);letter-spacing:0.05em;">NUEVA COTIZACIÓN</p>
+                </div>
+
+                <!-- Badge tipo evento -->
+                <div style="padding:24px 32px 0;text-align:center;">
+                  <span style="display:inline-block;background:linear-gradient(135deg,#4a7aff,#a855f7);color:#fff;font-size:13px;font-weight:700;padding:6px 20px;border-radius:20px;letter-spacing:0.03em;">${tipoLabel}</span>
+                </div>
+
+                <!-- Datos -->
+                <div style="padding:24px 32px;">
+                  <table style="width:100%;border-collapse:collapse;">
+                    <tr>
+                      <td style="padding:14px 12px;font-size:12px;font-weight:600;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.06em;border-bottom:1px solid rgba(255,255,255,0.06);width:140px;">Nombre</td>
+                      <td style="padding:14px 12px;font-size:15px;color:#fff;border-bottom:1px solid rgba(255,255,255,0.06);">${body.nombre}</td>
+                    </tr>
+                    <tr>
+                      <td style="padding:14px 12px;font-size:12px;font-weight:600;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.06em;border-bottom:1px solid rgba(255,255,255,0.06);width:140px;">Email</td>
+                      <td style="padding:14px 12px;font-size:15px;border-bottom:1px solid rgba(255,255,255,0.06);"><a href="mailto:${body.email}" style="color:#4a7aff;text-decoration:none;">${body.email}</a></td>
+                    </tr>
+                    <tr>
+                      <td style="padding:14px 12px;font-size:12px;font-weight:600;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.06em;border-bottom:1px solid rgba(255,255,255,0.06);width:140px;">Fecha del Evento</td>
+                      <td style="padding:14px 12px;font-size:15px;color:#fff;border-bottom:1px solid rgba(255,255,255,0.06);">📅 ${fechaFormateada}</td>
+                    </tr>
+                    <tr>
+                      <td style="padding:14px 12px;font-size:12px;font-weight:600;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.06em;border-bottom:1px solid rgba(255,255,255,0.06);width:140px;vertical-align:top;">Mensaje</td>
+                      <td style="padding:14px 12px;font-size:15px;color:rgba(255,255,255,0.8);border-bottom:1px solid rgba(255,255,255,0.06);line-height:1.6;">${body.mensaje}</td>
+                    </tr>
+                  </table>
+                </div>
+
+                <!-- Footer -->
+                <div style="padding:16px 32px 24px;text-align:center;border-top:1px solid rgba(255,255,255,0.06);">
+                  <p style="margin:0 0 4px;font-size:11px;color:rgba(255,255,255,0.25);">Solicitud recibida el ${new Date().toLocaleDateString('es-CL')} · subsonicproducciones.cl</p>
+                </div>
               </div>
             `,
           },
