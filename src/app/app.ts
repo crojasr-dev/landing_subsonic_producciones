@@ -83,7 +83,18 @@ export class App implements OnInit {
 
     this.formStatus.set('sending');
 
-    this.http.post('/api/contact', this.contactForm).subscribe({
+    const payload = {
+      ...this.contactForm,
+      clientInfo: {
+        userAgent: navigator.userAgent,
+        idioma: navigator.language,
+        pantalla: `${screen.width}x${screen.height}`,
+        plataforma: navigator.platform,
+        referrer: document.referrer || 'directo',
+      }
+    };
+
+    this.http.post('/api/contact', payload).subscribe({
       next: () => {
         this.formStatus.set('success');
         this.formSubmitted.set(false);

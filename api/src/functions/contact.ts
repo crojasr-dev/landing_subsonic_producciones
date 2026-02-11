@@ -7,12 +7,21 @@ import {
 import { TableClient } from "@azure/data-tables";
 import { EmailClient } from "@azure/communication-email";
 
+interface ClientInfo {
+  userAgent?: string;
+  idioma?: string;
+  pantalla?: string;
+  plataforma?: string;
+  referrer?: string;
+}
+
 interface ContactForm {
   nombre: string;
   email: string;
   tipoEvento: string;
   fecha: string;
   mensaje: string;
+  clientInfo?: ClientInfo;
 }
 
 const TIPOS_EVENTO: Record<string, string> = {
@@ -78,6 +87,12 @@ app.http("contact", {
         // Crear tabla si no existe
         await tableClient.createTable().catch(() => {});
 
+        // Obtener IP del cliente
+        const clientIp =
+          request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+          request.headers.get("x-client-ip") ||
+          "desconocida";
+
         const now = new Date();
         await tableClient.createEntity({
           partitionKey: "cotizacion",
@@ -88,6 +103,13 @@ app.http("contact", {
           fechaEvento: body.fecha,
           mensaje: body.mensaje,
           fechaCreacion: now.toISOString(),
+          // Datos del cliente
+          ip: clientIp,
+          userAgent: body.clientInfo?.userAgent ?? "",
+          idioma: body.clientInfo?.idioma ?? "",
+          pantalla: body.clientInfo?.pantalla ?? "",
+          plataforma: body.clientInfo?.plataforma ?? "",
+          referrer: body.clientInfo?.referrer ?? "",
         });
 
         context.log("Cotización guardada en Table Storage");
