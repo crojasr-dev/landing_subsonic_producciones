@@ -29,37 +29,43 @@
   </div>
   <div class="hero-particles">
     @for (p of particles; track p) {
-      <div class="particle" [style.left.%]="p.x" [style.animation-delay.s]="p.delay" [style.animation-duration.s]="p.duration"></div>
+    <div class="particle" [style.left.%]="p.x" [style.animation-delay.s]="p.delay"
+      [style.animation-duration.s]="p.duration"></div>
     }
   </div>
 
   <!-- Equalizer bars background -->
   <div class="hero-eq">
     @for (bar of eqBars; track bar.i) {
-      <div class="eq-bar" [style.height.%]="bar.h" [style.animation-delay.s]="bar.d"></div>
+    <div class="eq-bar" [style.height.%]="bar.h" [style.animation-delay.s]="bar.d"></div>
     }
   </div>
 
   <div class="hero-content">
     <div class="hero-badge">
-      <span class="badge-dot"></span>
-      LIVE DJ · SONIDO · EVENTOS
+      <span class="badge-dot"></span>DJ 
+      <span class="badge-dot"></span>Amplificación
+      <span class="badge-dot"></span> Iluminación
     </div>
     <h1 class="hero-title">
       <span class="title-main">SUBSONIC</span>
       <span class="title-bottom">PRODUCCIONES</span>
     </h1>
-    <p class="hero-subtitle">
-      DJ sets en vivo · Sonido profesional · Producción de eventos<br>
-      <!-- <strong>La energía que tu evento necesita 🔥</strong> -->
-    </p>
+    <!-- <p class="hero-subtitle">
+      DJ · Amplificación · Iluminación<br>
+      <strong>La energía que tu evento necesita 🔥</strong>
+    </p> -->
     <div class="hero-cta">
       <a href="#contact" class="btn btn-glow">
         <span>Cotiza tu Evento</span>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+          <path d="M5 12h14M12 5l7 7-7 7" />
+        </svg>
       </a>
       <a href="#mixes" class="btn btn-glass">
-        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+          <polygon points="5 3 19 12 5 21 5 3" />
+        </svg>
         <span>Escuchar Mixes</span>
       </a>
     </div>
@@ -79,16 +85,18 @@
   <div class="container">
     <div class="about-layout">
       <div class="about-left">
-        <span class="tag">// NOSOTROS</span>
         <h2 class="heading-xl">
           Hacemos que tu evento
-          <span class="text-gradient">suene épico</span>
+          <span class="text-gradient">sea épico</span>
         </h2>
         <p class="about-desc">
-          Somos profesionales del sonido y las comunicaciones con sede en Chile. Más de 7 años creando experiencias de audio inolvidables.
+          Somos una empresa de profesionales del sonido y las comunicaciones, nuestro compromiso es ofrecer un servicio
+          de calidad en el rubro de la producción de eventos.
         </p>
         <p class="about-desc">
-          La satisfacción de nuestros clientes es nuestra mejor publicidad. Cada proyecto es una oportunidad para demostrar compromiso y calidad.
+          La responsabilidad y compromiso que adoptamos en cada proyecto, junto a los conocimientos técnicos y
+          experiencia adquirida nos respaldan y nos permiten alcanzar los objetivos propuestos, sabemos que la mejor
+          publicidad que podemos tener es la satisfacción de nuestros clientes y trabajamos con eso en mente.
         </p>
         <div class="about-tags">
           <span class="pill-tag">🎧 DJ Sets</span>
@@ -126,43 +134,40 @@
 <section id="services" class="section services">
   <div class="container">
     <div class="section-header-left">
-      <span class="tag">// SERVICIOS</span>
       <h2 class="heading-xl">Lo que <span class="text-gradient">ofrecemos</span></h2>
     </div>
     <div class="services-grid">
       <div class="service-card" [style.--card-accent]="'#4a7aff'">
-        <div class="service-number">01</div>
         <div class="service-icon-modern">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/>
-            <path d="M12 2v4M12 18v4M2 12h4M18 12h4"/>
+            <circle cx="12" cy="12" r="10" />
+            <circle cx="12" cy="12" r="3" />
+            <path d="M12 2v4M12 18v4M2 12h4M18 12h4" />
           </svg>
         </div>
-        <h3>DJ Sets</h3>
-        <p>Sessions en vivo con los mejores géneros. Electrónica, reggaetón, latino — nos adaptamos a tu vibra.</p>
-        <span class="service-arrow">→</span>
+        <h3>DJ</h3>
+        <p>Toda la música se mezcla en vivo durante el evento, trabajamos con distintos géneros musicales de acuerdo a las necesidades de la pista de baile, por supuesto que el cliente puede solicitar 
+          sus favoritos, pero lo mas importante, leemos la pista para que la energía nunca decaiga.</p>
       </div>
       <div class="service-card" [style.--card-accent]="'#a855f7'">
-        <div class="service-number">02</div>
         <div class="service-icon-modern">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>
+            <path d="M9 18V5l12-2v13" />
+            <circle cx="6" cy="18" r="3" />
+            <circle cx="18" cy="16" r="3" />
           </svg>
         </div>
         <h3>Sonido Profesional</h3>
-        <p>Equipos de alta calidad para cualquier tamaño de evento. Audio cristalino garantizado.</p>
-        <span class="service-arrow">→</span>
+        <p>Trabajamos con equipos profesionales para asegurar calidad de audio, el confort acústico y la confiabilidad del sonido en cada evento.</p>
       </div>
       <div class="service-card" [style.--card-accent]="'#f59e0b'">
-        <div class="service-number">03</div>
         <div class="service-icon-modern">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
           </svg>
         </div>
         <h3>Iluminación</h3>
-        <p>Diseño de luces que transforma cualquier espacio en una experiencia visual increíble.</p>
-        <span class="service-arrow">→</span>
+        <p>Buscamos crear ambientes únicos y memorables mediante el uso de iluminación profesional que realza cada momento del evento.</p>
       </div>
     </div>
   </div>
@@ -173,12 +178,13 @@
   <div class="container">
     <div class="mixes-header">
       <div>
-        <span class="tag">// MIXES</span>
         <h2 class="heading-xl">Dale <span class="text-gradient">play</span></h2>
       </div>
-      <a href="https://www.mixcloud.com/Beatvicious/" target="_blank" rel="noopener noreferrer" class="btn btn-glass btn-sm">
+      <a href="https://www.mixcloud.com/Beatvicious/" target="_blank" rel="noopener noreferrer"
+        class="btn btn-glass btn-sm">
         <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
-          <path d="M2.462 8.596C1.11 8.596 0 9.706 0 11.06s1.11 2.462 2.462 2.462c1.352 0 2.462-1.11 2.462-2.462S3.814 8.596 2.462 8.596zm8.758-2.462c-2.703 0-4.924 2.22-4.924 4.924s2.22 4.924 4.924 4.924a4.893 4.893 0 003.694-1.692l-1.48-1.48a2.84 2.84 0 01-2.214 1.048 2.964 2.964 0 01-2.952-2.8 2.964 2.964 0 012.952-2.8c.867 0 1.634.367 2.187 1.022l1.507-1.507a4.844 4.844 0 00-3.694-1.64zm9.31.49l-3.444 5.348-3.47-5.347h-2.17l4.527 6.897h2.2l4.527-6.897h-2.17z"/>
+          <path
+            d="M2.462 8.596C1.11 8.596 0 9.706 0 11.06s1.11 2.462 2.462 2.462c1.352 0 2.462-1.11 2.462-2.462S3.814 8.596 2.462 8.596zm8.758-2.462c-2.703 0-4.924 2.22-4.924 4.924s2.22 4.924 4.924 4.924a4.893 4.893 0 003.694-1.692l-1.48-1.48a2.84 2.84 0 01-2.214 1.048 2.964 2.964 0 01-2.952-2.8 2.964 2.964 0 012.952-2.8c.867 0 1.634.367 2.187 1.022l1.507-1.507a4.844 4.844 0 00-3.694-1.64zm9.31.49l-3.444 5.348-3.47-5.347h-2.17l4.527 6.897h2.2l4.527-6.897h-2.17z" />
         </svg>
         Ver todo en Mixcloud
       </a>
@@ -190,7 +196,8 @@
           <h4>RetroMix</h4>
         </div>
         <div class="mix-player">
-          <iframe width="100%" height="120" [src]="mixcloudUrls[0]" frameborder="0" allow="autoplay" loading="lazy"></iframe>
+          <iframe width="100%" height="120" [src]="mixcloudUrls[0]" frameborder="0" allow="autoplay"
+            loading="lazy"></iframe>
         </div>
       </div>
       <div class="mix-card">
@@ -199,7 +206,8 @@
           <h4>Dj Kitan - Eurodance</h4>
         </div>
         <div class="mix-player">
-          <iframe width="100%" height="120" [src]="mixcloudUrls[1]" frameborder="0" allow="autoplay" loading="lazy"></iframe>
+          <iframe width="100%" height="120" [src]="mixcloudUrls[1]" frameborder="0" allow="autoplay"
+            loading="lazy"></iframe>
         </div>
       </div>
       <div class="mix-card">
@@ -208,7 +216,8 @@
           <h4>Random Mix Vol. 2</h4>
         </div>
         <div class="mix-player">
-          <iframe width="100%" height="120" [src]="mixcloudUrls[2]" frameborder="0" allow="autoplay" loading="lazy"></iframe>
+          <iframe width="100%" height="120" [src]="mixcloudUrls[2]" frameborder="0" allow="autoplay"
+            loading="lazy"></iframe>
         </div>
       </div>
       <div class="mix-card">
@@ -217,7 +226,8 @@
           <h4>Random Mix Vol. 1</h4>
         </div>
         <div class="mix-player">
-          <iframe width="100%" height="120" [src]="mixcloudUrls[3]" frameborder="0" allow="autoplay" loading="lazy"></iframe>
+          <iframe width="100%" height="120" [src]="mixcloudUrls[3]" frameborder="0" allow="autoplay"
+            loading="lazy"></iframe>
         </div>
       </div>
     </div>
@@ -229,7 +239,6 @@
   <div class="container">
     <div class="contact-layout">
       <div class="contact-left">
-        <span class="tag">// CONTACTO</span>
         <h2 class="heading-xl">
           ¿Listo para la<br>
           <span class="text-gradient">mejor fiesta?</span>
@@ -241,35 +250,45 @@
             <div class="contact-icon">📍</div>
             <div>
               <span class="contact-label">Ubicación</span>
-              <span class="contact-value">Chile</span>
+              <span class="contact-value">Region Metropolitana, Chile</span>
             </div>
           </div>
-          <div class="contact-item">
+          <!-- <div class="contact-item">
             <div class="contact-icon">📧</div>
             <div>
               <span class="contact-label">Email</span>
               <span class="contact-value">contacto&#64;subsonicproducciones.cl</span>
             </div>
-          </div>
+          </div> -->
           <div class="contact-item">
             <div class="contact-icon">📱</div>
             <div>
               <span class="contact-label">Teléfono</span>
-              <span class="contact-value">+56 9 XXXX XXXX</span>
+              <span class="contact-value">+56 9 8479 2486</span>
             </div>
           </div>
         </div>
 
         <div class="contact-socials">
-          <a href="https://www.mixcloud.com/Beatvicious/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Mixcloud">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M2.462 8.596C1.11 8.596 0 9.706 0 11.06s1.11 2.462 2.462 2.462c1.352 0 2.462-1.11 2.462-2.462S3.814 8.596 2.462 8.596zm8.758-2.462c-2.703 0-4.924 2.22-4.924 4.924s2.22 4.924 4.924 4.924a4.893 4.893 0 003.694-1.692l-1.48-1.48a2.84 2.84 0 01-2.214 1.048 2.964 2.964 0 01-2.952-2.8 2.964 2.964 0 012.952-2.8c.867 0 1.634.367 2.187 1.022l1.507-1.507a4.844 4.844 0 00-3.694-1.64zm9.31.49l-3.444 5.348-3.47-5.347h-2.17l4.527 6.897h2.2l4.527-6.897h-2.17z"/></svg>
-          </a>
+          <!-- <a href="https://www.mixcloud.com/Beatvicious/" target="_blank" rel="noopener noreferrer" class="social-link"
+            aria-label="Mixcloud">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M2.462 8.596C1.11 8.596 0 9.706 0 11.06s1.11 2.462 2.462 2.462c1.352 0 2.462-1.11 2.462-2.462S3.814 8.596 2.462 8.596zm8.758-2.462c-2.703 0-4.924 2.22-4.924 4.924s2.22 4.924 4.924 4.924a4.893 4.893 0 003.694-1.692l-1.48-1.48a2.84 2.84 0 01-2.214 1.048 2.964 2.964 0 01-2.952-2.8 2.964 2.964 0 012.952-2.8c.867 0 1.634.367 2.187 1.022l1.507-1.507a4.844 4.844 0 00-3.694-1.64zm9.31.49l-3.444 5.348-3.47-5.347h-2.17l4.527 6.897h2.2l4.527-6.897h-2.17z" />
+            </svg>
+          </a> -->
           <a href="#" class="social-link" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="2" y="2" width="20" height="20" rx="5" />
+              <circle cx="12" cy="12" r="5" />
+              <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none" />
+            </svg>
           </a>
-          <a href="#" class="social-link" aria-label="Facebook">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-          </a>
+          <!-- <a href="#" class="social-link" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+            </svg>
+          </a> -->
         </div>
       </div>
 
@@ -305,25 +324,30 @@
         </div>
         <div class="form-group">
           <label>Mensaje</label>
-          <textarea rows="4" placeholder="Cuéntanos los detalles de tu evento..." required [(ngModel)]="contactForm.mensaje" name="mensaje"></textarea>
+          <textarea rows="4" placeholder="Cuéntanos los detalles de tu evento..." required
+            [(ngModel)]="contactForm.mensaje" name="mensaje"></textarea>
         </div>
         <button type="submit" class="btn btn-glow btn-full" [disabled]="formStatus() === 'sending'">
           @if (formStatus() === 'sending') {
-            <span>Enviando...</span>
+          <span>Enviando...</span>
           } @else {
-            <span>Enviar Mensaje</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+          <span>Enviar Mensaje</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+            <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
+          </svg>
           }
         </button>
         @if (formStatus() === 'success') {
-          <div style="margin-top:1rem;padding:1rem;border-radius:0.5rem;background:rgba(34,197,94,0.15);color:#22c55e;text-align:center;font-weight:500;">
-            ¡Gracias! Te contactaremos pronto. 🎉
-          </div>
+        <div
+          style="margin-top:1rem;padding:1rem;border-radius:0.5rem;background:rgba(34,197,94,0.15);color:#22c55e;text-align:center;font-weight:500;">
+          ¡Gracias! Te contactaremos pronto. 🎉
+        </div>
         }
         @if (formStatus() === 'error') {
-          <div style="margin-top:1rem;padding:1rem;border-radius:0.5rem;background:rgba(239,68,68,0.15);color:#ef4444;text-align:center;font-weight:500;">
-            Hubo un error. Intenta de nuevo o escríbenos directamente.
-          </div>
+        <div
+          style="margin-top:1rem;padding:1rem;border-radius:0.5rem;background:rgba(239,68,68,0.15);color:#ef4444;text-align:center;font-weight:500;">
+          Hubo un error. Intenta de nuevo o escríbenos directamente.
+        </div>
         }
       </form>
     </div>

@@ -26,15 +26,6 @@
   background-clip: text;
 }
 
-/* ── Tag label ── */
-.tag {
-  display: inline-block;
-  font-family: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
-  font-size: 0.75rem;
-  color: #4a7aff;
-  letter-spacing: 0.08em;
-  margin-bottom: 0.75rem;
-}
 
 /* ── Heading XL ── */
 .heading-xl {
@@ -662,22 +653,10 @@
   opacity: 1;
 }
 
-.service-number {
-  font-size: 0.6875rem;
-  font-weight: 700;
-  color: var(--card-accent);
-  font-family: 'JetBrains Mono', 'SF Mono', monospace;
-  letter-spacing: 0.1em;
-  margin-bottom: 1.5rem;
-  position: relative;
-  z-index: 1;
-  opacity: 0.5;
-}
-
 .service-icon-modern {
-  width: 44px;
-  height: 44px;
-  margin-bottom: 1.25rem;
+  width: 60px;
+  height: 60px;
+  margin-bottom: 1.5rem;
   color: var(--card-accent);
   position: relative;
   z-index: 1;
@@ -689,7 +668,7 @@
 }
 
 .service-card h3 {
-  font-size: 1.125rem;
+  font-size: 1.4rem;
   font-weight: 700;
   margin: 0 0 0.75rem;
   position: relative;
@@ -698,28 +677,11 @@
 
 .service-card p {
   color: rgba(255, 255, 255, 0.4);
-  font-size: 0.8125rem;
+  font-size: 0.9375rem;
   line-height: 1.7;
   margin: 0;
   position: relative;
   z-index: 1;
-}
-
-.service-arrow {
-  display: inline-block;
-  margin-top: 1.25rem;
-  color: var(--card-accent);
-  font-size: 1.25rem;
-  opacity: 0;
-  transform: translateX(-8px);
-  transition: all 0.3s ease;
-  position: relative;
-  z-index: 1;
-}
-
-.service-card:hover .service-arrow {
-  opacity: 1;
-  transform: translateX(0);
 }
 
 /* ======================================
