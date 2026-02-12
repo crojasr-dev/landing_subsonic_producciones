@@ -21,15 +21,15 @@ export interface MixData {
 
 export const MIXES: MixData[] = [
   {
-    title: 'RetroMix',
+    title: 'Latin House Mix',
     badge: '🔥 Nuevo',
     isHot: true,
-    url: 'https://www.mixcloud.com/SubsonicProducciones/retromix/',
+    url: 'https://www.mixcloud.com/SubsonicProducciones/mix-latin-house/',
   },
   // Agrega más mixes aquí, ejemplo:
   {
-    title: 'Latin House Mix',
+    title: 'RetroMix',
     badge: '🎶 Mix',
-    url: 'https://www.mixcloud.com/SubsonicProducciones/mix-latin-house/',
+    url: 'https://www.mixcloud.com/SubsonicProducciones/retromix/',
   },
 ];
