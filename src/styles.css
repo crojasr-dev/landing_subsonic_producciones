@@ -11,26 +11,8 @@
 }
 
 :root {
-  /* Royal Blue palette */
-  --royal-blue: #1a3a8f;
-  --royal-blue-dark: #0f2460;
-  --royal-blue-light: #2b52c4;
-  --royal-blue-accent: #4a7aff;
   --navy: #0a1628;
-  --navy-light: #111d35;
-
-  /* Neutral */
-  --white: #ffffff;
-  --gray-50: #f8f9fc;
-  --gray-100: #eef1f8;
-  --gray-200: #d8dde9;
-  --gray-400: #8892a8;
-  --gray-600: #4a5568;
   --gray-800: #1a202c;
-
-  /* Accent */
-  --gold: #d4a843;
-  --gold-light: #f0d078;
 }
 
 html {
