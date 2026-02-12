@@ -1,6 +1,11 @@
 {
   "navigationFallback": {
     "rewrite": "/index.html",
-    "exclude": ["/api/*", "*.{css,js,ico,png,jpg,jpeg,gif,svg,woff,woff2}"]
+    "exclude": ["/api/*", "*.{css,js,ico,png,jpg,jpeg,gif,svg,woff,woff2,xml,txt}"]
+  },
+  "globalHeaders": {
+    "X-Content-Type-Options": "nosniff",
+    "X-Frame-Options": "DENY",
+    "Referrer-Policy": "strict-origin-when-cross-origin"
   }
 }
